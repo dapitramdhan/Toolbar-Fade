@@ -22,9 +22,10 @@ public class MainActivity extends AppCompatActivity {
 		toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 
-		mActionBarBackgroundDrawable = toolbar.getBackground();
+		mActionBarBackgroundDrawable = getResources().getDrawable(R.drawable.warna_utama);
+		toolbar.setBackgroundDrawable(mActionBarBackgroundDrawable);
 		mActionBarBackgroundDrawable.setAlpha(0);
-		((ToolbarFadeOnScrolling) findViewById(R.id.scroll_view)).setOnScrollChangedListener(mOnScrollChangedListener);
+		((ToolbarFadeOnScrolling) view.findViewById(R.id.scroll_view)).setOnScrollChangedListener(mOnScrollChangedListener);
 
 	}
 
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 			final float ratio = (float) Math.min(Math.max(t, 0), headerHeight) / headerHeight;
 			final int newAlpha = (int) (ratio * 255);
 			mActionBarBackgroundDrawable.setAlpha(newAlpha);
-			toolbar.setBackground(mActionBarBackgroundDrawable);
+	
 
 		}
 	};
